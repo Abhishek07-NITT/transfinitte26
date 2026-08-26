@@ -12,11 +12,11 @@ import {
   subash,
   mudit,
   geeks,
-  netcon,
+  bosch,
   boeing,
-  tezos,
+  yamaha,
   bharatX,
-  pathway,
+  jbl,
   crewsphere,
 } from "../assets";
 
@@ -84,8 +84,8 @@ export const sponsors = [
     data: [
       {
         id: "0",
-        name: "Netcon",
-        imgurl: netcon,
+        name: "Bosch",
+        imgurl: bosch,
       },
       {
         id: "1",
@@ -94,8 +94,8 @@ export const sponsors = [
       },
       {
         id: "2",
-        name: "tezos",
-        imgurl: tezos,
+        name: "Yamaha",
+        imgurl: yamaha,
       },
       ,
       {
@@ -116,8 +116,8 @@ export const sponsors = [
       },
       {
         id: "6",
-        name: "Pathway",
-        imgurl: pathway,
+        name: "JBL",
+        imgurl: jbl,
       },
     ],
   },

@@ -16,12 +16,12 @@ import mudit from "./images/mudit.jpeg"
 
 
 import geeks from "./svg/gfg.svg"
-import netcon from "./svg/netcon.svg"
+import bosch from "./svg/bosch.svg"
 import boeing from "./svg/boeing.svg"
-import tezos from "./svg/tezos.svg"
+import yamaha from "./svg/yamaha.svg"
 import crewsphere from "./svg/crewsphere.svg"
 import bharatX from "./svg/bharatX.svg"
-import pathway from "./svg/pathway.svg"
+import jbl from "./svg/jbl.svg"
 
 import groups from "./svg/groups.svg"
 import prizes from "./svg/prizes.svg"
@@ -61,12 +61,12 @@ export {
     arrowbl,
     admin,
     geeks,
-    netcon,
+    bosch,
     boeing,
-    tezos,
+    yamaha,
     bharatX,
     crewsphere,
-    pathway,
+    jbl,
     tffooter,
     tffootersm,
     instagram,
