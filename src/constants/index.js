@@ -15,9 +15,9 @@ import {
   bosch,
   boeing,
   yamaha,
-  bharatX,
+  mckinsey,
   jbl,
-  crewsphere,
+  jcb,
 } from "../assets";
 
 export const judges = [
@@ -106,13 +106,13 @@ export const sponsors = [
       ,
       {
         id: "4",
-        name: "Crewsphere",
-        imgurl: crewsphere,
+        name: "jcb",
+        imgurl: jcb,
       },
       {
         id: "5",
-        name: "BharatX",
-        imgurl: bharatX,
+        name: "mckinsey",
+        imgurl: mckinsey,
       },
       {
         id: "6",
