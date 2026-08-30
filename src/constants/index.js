@@ -19,6 +19,7 @@ import {
   jbl,
   jcb,
   bcg,
+  tezos,
 } from "../assets";
 
 export const judges = [
@@ -124,7 +125,12 @@ export const sponsors = [
         id: "7",
         name: "BCG",
         imgurl: bcg,
-      }
+      },
+      {
+        id: "8",
+        name: "Tezos",
+        imgurl: tezos,  
+      },
     ],
   },
 ];
