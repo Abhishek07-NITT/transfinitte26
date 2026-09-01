@@ -22,7 +22,7 @@ import jcb from "./svg/jcb.svg"
 import mckinsey from "./svg/mckinsey.svg"
 import jbl from "./svg/jbl.svg"
 import bcg from "./svg/bcg.svg"
-import bhel from "./svg/bhel.svg"
+import bhel from "./svg/bhel.png"
 
 
 import groups from "./svg/groups.svg"
@@ -76,4 +76,5 @@ export {
     linkedinwh,
     tfbadge,
     bcg,
+    bhel,
     };
