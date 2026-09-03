@@ -109,14 +109,14 @@ const FooterLink = memo(({ href, text }) => (
 ));
 
 const FooterMobile = memo(() => (
-  <div className="block sm:hidden mx-auto bg-white dark:bg-black max-w-full transition-colors duration-300">
-    <div className="max-h-screen flex flex-col justify-center items-start flex-shrink-0 border-l border-r border-b border-l-edge border-r-edge border-b-edge w-[91.467%] mx-auto mb-4 py-[0.625rem] px-0 gap-4">
-      <div className="flex justify-center items-center self-stretch py-[0.15rem] select-none pointer-events-none">
-        <img src={tffootersm} className="dark:invert-0 invert transition-all duration-300" alt="Footer Logo" />
+  <div className="block md:hidden mx-auto bg-white dark:bg-black max-w-full transition-colors duration-300">
+    <div className="flex flex-col justify-center items-start flex-shrink-0 border-l border-r border-b border-l-edge border-r-edge border-b-edge w-[92%] mx-auto mb-4 py-4 px-2 gap-4">
+      <div className="flex justify-center items-center self-stretch py-1 select-none pointer-events-none">
+        <img src={tffootersm} className="dark:invert-0 invert transition-all duration-300 max-w-full h-auto" alt="Footer Logo" />
       </div>
-      <div className="flex py-0 px-4 flex-col justify-center gap-[1rem] self-stretch">
-        <div className="flex w-full justify-between items-center gap-[0.625rem]">
-          <div className="w-full h-auto flex justify-between flex-shrink-0 gap-[0.625rem]">
+      <div className="flex py-0 px-2 flex-col justify-center gap-4 self-stretch">
+        <div className="flex w-full justify-between items-center gap-2">
+          <div className="w-full h-auto flex flex-wrap justify-between items-center gap-2">
             <div className="inline-flex px-[0.5rem] py-[0.63rem] justify-center items-center gap-[0.625rem] rounded-full border-[0.5px] border-solid border-neutral-300 dark:border-white/20 footer-links hover:underline decoration-black dark:decoration-white leading-none my-0">
               <ContactDialog />
             </div>
@@ -130,8 +130,8 @@ const FooterMobile = memo(() => (
             />
           </div>
         </div>
-        <div className="flex justify-center items-start gap-[0.3125rem]">
-          <div className="text-neutral-500 dark:text-[#A1A1A1] font-spacemono text-[0.75rem] not-italic font-normal leading-normal tracking-[-0.0075rem] uppercase transition-colors">
+        <div className="flex justify-center items-start pt-2">
+          <div className="text-neutral-500 dark:text-[#A1A1A1] font-spacemono text-[0.75rem] not-italic font-normal leading-normal tracking-[-0.0075rem] uppercase text-center transition-colors">
             © 2026 TRANSFINITTE. All Rights Reserved.
           </div>
         </div>
@@ -141,14 +141,14 @@ const FooterMobile = memo(() => (
 ));
 
 const FooterDesktop = memo(() => (
-  <div className="hidden sm:block mx-auto bg-white dark:bg-black max-w-[93.194%] transition-colors duration-300">
-    <div className="flex h-auto py-9 px-0 flex-col items-start gap-[36px] border-r border-l border-r-edge border-l-edge bg-white dark:bg-black transition-colors">
-      <div className="flex justify-center items-center self-stretch tf-footer select-none pointer-events-none">
-        <img src={tffooter} className="dark:invert-0 invert transition-all duration-300" alt="Footer Logo" />
+  <div className="hidden md:block mx-auto bg-white dark:bg-black max-w-[95%] xl:max-w-[93.194%] transition-colors duration-300">
+    <div className="flex h-auto py-8 lg:py-12 px-0 flex-col items-start gap-8 lg:gap-10 border-r border-l border-r-edge border-l-edge bg-white dark:bg-black transition-colors">
+      <div className="flex justify-center items-center self-stretch tf-footer select-none pointer-events-none px-4">
+        <img src={tffooter} className="dark:invert-0 invert transition-all duration-300 max-w-5xl lg:max-w-6xl w-full h-auto" alt="Footer Logo" />
       </div>
-      <div className="w-full h-[1.25rem] flex py-0 px-[46px] justify-between items-center self-stretch">
-        <div className="flex justify-center items-center gap-[5px]">
-          <div className="text-neutral-500 dark:text-[#A1A1A1] font-spacemono text-[1rem] not-italic font-normal leading-normal tracking-[-0.01rem] uppercase transition-colors">
+      <div className="w-full flex flex-col lg:flex-row py-2 px-6 lg:px-[46px] justify-between items-center gap-4 self-stretch">
+        <div className="flex flex-wrap justify-center items-center gap-3">
+          <div className="text-neutral-500 dark:text-[#A1A1A1] font-spacemono text-[0.875rem] lg:text-[1rem] not-italic font-normal leading-normal tracking-[-0.01rem] uppercase transition-colors">
             © 2026 TRANSFINITTE. All Rights Reserved.
           </div>
           <div className="flex w-fit pb-1 justify-center items-start gap-3">
@@ -173,7 +173,7 @@ const FooterDesktop = memo(() => (
           </div>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex flex-wrap items-center justify-center gap-3 lg:gap-4">
           <div className="flex py-[6px] px-3 justify-center items-center gap-[10px] rounded-full border border-solid border-neutral-300 dark:border-white/20 footer-links hover:underline decoration-black dark:decoration-white">
             <ContactDialog />
           </div>

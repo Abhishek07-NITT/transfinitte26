@@ -8,29 +8,29 @@ export function ThemeToggle({ className = "" }) {
 
   return (
     <button
-      onClick={toggleTheme}
+      onClick={(e) => toggleTheme(e)}
       type="button"
       aria-label={`Switch to ${isDark ? "light" : "dark"} theme`}
-      className={`relative inline-flex items-center justify-center p-2 rounded-full border border-solid transition-all duration-300 group select-none ${
+      className={`relative inline-flex items-center justify-center p-2 rounded-full border border-solid transition-all duration-300 active:scale-90 active:rotate-12 group select-none shadow-sm cursor-pointer ${
         isDark
-          ? "border-white/20 bg-white/10 text-white hover:bg-white/20 hover:border-white/40"
-          : "border-black/20 bg-black/5 text-black hover:bg-black/10 hover:border-black/40"
+          ? "border-white/20 bg-white/10 text-white hover:bg-white/20 hover:border-white/40 hover:shadow-[0_0_12px_rgba(255,255,255,0.2)]"
+          : "border-black/20 bg-black/5 text-black hover:bg-black/10 hover:border-black/40 hover:shadow-[0_0_12px_rgba(0,0,0,0.1)]"
       } ${className}`}
       title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
     >
       <div className="relative w-4 h-4 flex items-center justify-center">
         <Sun
-          className={`w-4 h-4 transition-all duration-300 absolute ${
+          className={`w-4 h-4 transition-all duration-500 absolute [transition-timing-function:cubic-bezier(0.34,1.56,0.64,1)] ${
             isDark
-              ? "rotate-90 scale-0 opacity-0"
-              : "rotate-0 scale-100 opacity-100 text-amber-600"
+              ? "rotate-180 scale-0 opacity-0"
+              : "rotate-0 scale-100 opacity-100 text-amber-500 fill-amber-500/20"
           }`}
         />
         <Moon
-          className={`w-4 h-4 transition-all duration-300 absolute ${
+          className={`w-4 h-4 transition-all duration-500 absolute [transition-timing-function:cubic-bezier(0.34,1.56,0.64,1)] ${
             isDark
-              ? "rotate-0 scale-100 opacity-100 text-sky-300"
-              : "-rotate-90 scale-0 opacity-0"
+              ? "rotate-0 scale-100 opacity-100 text-sky-300 fill-sky-300/20"
+              : "-rotate-180 scale-0 opacity-0"
           }`}
         />
       </div>
