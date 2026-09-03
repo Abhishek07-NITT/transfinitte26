@@ -16,12 +16,14 @@ import mudit from "./images/mudit.jpeg"
 
 
 import geeks from "./svg/gfg.svg"
-import netcon from "./svg/netcon.svg"
-import boeing from "./svg/boeing.svg"
-import tezos from "./svg/tezos.svg"
-import crewsphere from "./svg/crewsphere.svg"
-import bharatX from "./svg/bharatX.svg"
-import pathway from "./svg/pathway.svg"
+import bosch from "./svg/bosch.svg"
+import yamaha from "./svg/yamaha.svg"
+import jcb from "./svg/jcb.svg"
+import mckinsey from "./svg/mckinsey.svg"
+import jbl from "./svg/jbl.svg"
+import bcg from "./svg/bcg.svg"
+import bhel from "./svg/bhel.png"
+
 
 import groups from "./svg/groups.svg"
 import prizes from "./svg/prizes.svg"
@@ -61,12 +63,11 @@ export {
     arrowbl,
     admin,
     geeks,
-    netcon,
-    boeing,
-    tezos,
-    bharatX,
-    crewsphere,
-    pathway,
+    bosch,
+    yamaha,
+    mckinsey,
+    jcb,
+    jbl,
     tffooter,
     tffootersm,
     instagram,
@@ -74,4 +75,6 @@ export {
     linkedin,
     linkedinwh,
     tfbadge,
+    bcg,
+    bhel,
     };

@@ -46,11 +46,11 @@ const ContactDialog = memo(() => (
                 Technical Council of NIT Trichy
               </div>
               <div className="self-stretch text-black font-spacegrotesk text-[0.825rem] sm:text-[1.125rem] not-italic font-bold leading-normal tracking-[-0.011rem]">
-                Samarth <span className="font-light">7505360572</span>
+                Vaibhav <span className="font-light">9141050129</span>
                 <br />
-                Sanjana <span className="font-light">9653226903</span>
+                Ibrahim <span className="font-light">9384848353</span>
                 <br />
-                Vishnucharan <span className="font-light">7708951932</span>
+                Hrishidev <span className="font-light">9446048442</span>
                 <br />
               </div>
               <div className="sm:hidden flex justify-center items-center w-full">

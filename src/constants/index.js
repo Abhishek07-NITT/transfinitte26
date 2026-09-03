@@ -12,12 +12,13 @@ import {
   subash,
   mudit,
   geeks,
-  netcon,
-  boeing,
-  tezos,
-  bharatX,
-  pathway,
-  crewsphere,
+  bosch,
+  yamaha,
+  mckinsey,
+  jbl,
+  jcb,
+  bcg,
+  bhel,
 } from "../assets";
 
 export const judges = [
@@ -84,41 +85,46 @@ export const sponsors = [
     data: [
       {
         id: "0",
-        name: "Netcon",
-        imgurl: netcon,
+        name: "Bosch",
+        imgurl: bosch,
       },
       {
         id: "1",
-        name: "Boeing",
-        imgurl: boeing,
-      },
-      {
-        id: "2",
-        name: "tezos",
-        imgurl: tezos,
+        name: "Yamaha",
+        imgurl: yamaha,
       },
       ,
       {
-        id: "3",
+        id: "2",
         name: "Geeks For Geeks",
         imgurl: geeks,
       },
       ,
       {
+        id: "3",
+        name: "jcb",
+        imgurl: jcb,
+      },
+      {
         id: "4",
-        name: "Crewsphere",
-        imgurl: crewsphere,
+        name: "mckinsey",
+        imgurl: mckinsey,
       },
       {
         id: "5",
-        name: "BharatX",
-        imgurl: bharatX,
+        name: "JBL",
+        imgurl: jbl,
       },
-      {
-        id: "6",
-        name: "Pathway",
-        imgurl: pathway,
-      },
+        {
+          id: "6",
+          name: "BCG",
+          imgurl: bcg,
+        },
+        {
+          id: "7",
+          name: "BHEL",
+          imgurl: bhel,
+        },
     ],
   },
 ];
