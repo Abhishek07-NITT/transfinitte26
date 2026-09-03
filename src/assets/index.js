@@ -2,6 +2,7 @@ import numbersvg from "./svg/24.svg";
 import tfhero from "./svg/tf-hero.svg"
 import tfherosm from "./svg/tf-text-ph.svg"
 import bubble from "./svg/bubble.svg"
+import bubbleLight from "./svg/bubble-light.svg"
 import tfgridsm from "./svg/tf-grid-sm.svg"
 import aboutus from "./images/aboutus.jpeg"
 import anand from "./images/Anand Kumar.jpg"
@@ -45,6 +46,7 @@ export {
     tfhero,
     tfherosm,
     bubble,
+    bubbleLight,
     tfgridsm,
     aboutus,
     anand,

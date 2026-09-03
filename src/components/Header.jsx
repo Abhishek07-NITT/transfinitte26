@@ -2,18 +2,14 @@ import React, { lazy, memo, Suspense } from "react";
 import { arrowbl, arrowwh, numbersvg, tfbadge } from "../assets";
 import { toast } from "sonner";
 import { Button } from "./ui/button";
+import ThemeToggle from "./ThemeToggle";
 
 const Flip = lazy(() => import("./Flip"));
 
 const Header = memo(() => {
   const handleClick = () => {
     toast("Coming Soon", {
-      description: "wednesday, 21 October 2026, 9:00 AM", // Custom style for description
-      style: {
-        backgroundColor: "#EDEDED",
-        color: "#000",
-        padding: "16px",
-      },
+      description: "Wednesday, 21 October 2026, 9:00 AM",
       className: "font-spacemono",
     });
   };
@@ -21,13 +17,14 @@ const Header = memo(() => {
   const RegisterButton = ({ variant, className }) => (
     <Button variant={variant} onClick={handleClick}>
       <div
-        className={`flex flex-row gap-1 justify-center items-center bg-offwhite px-2 py-0 rounded-full hover:underline decoration-black ${className}`}
+        className={`flex flex-row gap-1 justify-center items-center bg-black text-white dark:bg-offwhite dark:text-black px-2 py-0 rounded-full hover:underline decoration-white dark:decoration-black transition-colors ${className}`}
       >
-        <div className="text-black text-center font-spacemono text-[0.875rem] not-italic font-bold leading-5 tracking-[0.35px] uppercase bg-offwhite">
+        <div className="text-center font-spacemono text-[0.875rem] not-italic font-bold leading-5 tracking-[0.35px] uppercase">
           REGISTER
         </div>
         <div>
-          <img src={arrowbl} className="max-w-none w-fit bg-offwhite" />
+          <img src={arrowwh} className="max-w-none w-fit dark:hidden" alt="arrow" />
+          <img src={arrowbl} className="max-w-none w-fit hidden dark:block" alt="arrow" />
         </div>
       </div>
     </Button>
@@ -38,50 +35,55 @@ const Header = memo(() => {
       href="https://www.instagram.com/tc_nitt/"
       target="_blank"
       rel="noopener noreferrer"
-      className="hover:underline decoration-white"
+      className="hover:underline decoration-black dark:decoration-white"
     >
       <button className="flex flex-row gap-1 justify-center items-center">
-        <div className="text-offwhite text-center font-spacemono text-[0.875rem] not-italic font-bold leading-5 tracking-[0.35px] uppercase">
+        <div className="text-neutral-800 dark:text-offwhite text-center font-spacemono text-[0.875rem] not-italic font-bold leading-5 tracking-[0.35px] uppercase">
           INSTAGRAM
         </div>
         <div>
-          <img src={arrowwh} className="max-w-none w-fit" />
+          <img src={arrowbl} className="max-w-none w-fit dark:hidden" alt="arrow" />
+          <img src={arrowwh} className="max-w-none w-fit hidden dark:block" alt="arrow" />
         </div>
       </button>
     </a>
   );
 
   const HeaderMobile = memo(() => (
-    <div className="block sm:hidden relative">
-      <div className="flex items-center justify-between bg-black shrink-0 w-full border-b-[#EDEDED26] border-b border-solid py-4 px-8 sticky top-0 shadow-md z-50 content-stretch">
+    <div className="block md:hidden relative">
+      <div className="flex items-center justify-between bg-white/90 dark:bg-black/90 backdrop-blur-md shrink-0 w-full border-b border-solid border-black/10 dark:border-b-[#EDEDED26] py-3.5 px-4 sm:px-6 sticky top-0 shadow-sm dark:shadow-md z-50 content-stretch transition-colors duration-300">
         <Suspense fallback={<div>Loading...</div>}>
-          <img src={tfbadge} />
+          <img src={tfbadge} alt="Transfinitte Badge" className="dark:invert-0 invert transition-all w-auto h-5 sm:h-6" />
         </Suspense>
-        <RegisterButton variant="outline" className="px-[0.5625rem] py-1" />
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          <ThemeToggle />
+          <RegisterButton variant="outline" className="px-3 py-1 text-xs sm:text-sm" />
+        </div>
       </div>
     </div>
   ));
 
   const HeaderDesktop = memo(() => (
-    <div className="hidden sm:flex justify-between items-center h-max py-5 bg-black shrink-0 self-stretch border-b-[#EDEDED26] border-b border-solid pl-12 sticky top-0 shadow-md z-50 content-stretch">
-      <div className="w-[15vw]">
+    <div className="hidden md:flex justify-between items-center h-max py-4 lg:py-5 bg-white/90 dark:bg-black/90 backdrop-blur-md shrink-0 self-stretch border-b border-solid border-black/10 dark:border-b-[#EDEDED26] px-6 lg:px-12 sticky top-0 shadow-sm dark:shadow-md z-50 content-stretch transition-colors duration-300">
+      <div className="w-auto shrink-0 min-w-[140px]">
         <Suspense fallback={<div>Loading...</div>}>
           <Flip />
         </Suspense>
       </div>
-      <div className="flex flex-row flex-grow gap-1 self-stretch items-center justify-center">
-        <div className="text-white text-center text-xl font-spacegrotesk items-center font-medium leading-5 tracking-[-0.1px] uppercase">
+      <div className="flex flex-row flex-grow gap-2 self-stretch items-center justify-center">
+        <div className="text-black dark:text-white text-center text-lg lg:text-xl font-spacegrotesk items-center font-medium leading-5 tracking-[-0.1px] uppercase transition-colors">
           Transfinitte
         </div>
         <div>
           <a>
-            <img src={numbersvg} alt="24" />
+            <img src={numbersvg} alt="24" className="dark:invert-0 invert transition-all" />
           </a>
         </div>
       </div>
-      <div className="w-fit h-fit flex gap-[36px] mr-[3rem] justify-center items-center">
+      <div className="w-fit h-fit flex gap-3 lg:gap-6 justify-center items-center">
         <InstagramButton />
-        <RegisterButton variant="outline" className="px-5 py-2" />
+        <ThemeToggle />
+        <RegisterButton variant="outline" className="px-4 lg:px-5 py-2" />
       </div>
     </div>
   ));

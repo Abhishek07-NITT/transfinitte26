@@ -2,65 +2,49 @@ import React, { memo, Suspense, useState } from "react";
 import { judges } from "../constants";
 
 const JudgesList = memo(({ judges, hoveredJudge, setHoveredJudge }) => (
-  <div className="flex flex-col items-start gap-4 self-stretch">
-    <div className="flex flex-col items-start gap-4 self-stretch">
-      {judges.map((judge) => (
-        <div
-          key={judge.id}
-          className={` text-offwhite font-spacegrotesk text-[32px] not-italic font-normal leading-8 transition-opacity duration-300 select-none cursor-default ${
-            hoveredJudge === judge.id ? "opacity-100" : "opacity-50"
-          }`}
-          onMouseEnter={() => setHoveredJudge(judge.id)}
-          onMouseLeave={() => setHoveredJudge(null)}
-        >
-          {judge.name}
-        </div>
-      ))}
-    </div>
+  <div className="flex flex-col items-start gap-3 lg:gap-4 self-stretch">
+    {judges.map((judge) => (
+      <div
+        key={judge.id}
+        className={`text-neutral-900 dark:text-offwhite font-spacegrotesk text-xl lg:text-2xl xl:text-[32px] not-italic font-normal leading-tight transition-all duration-300 select-none cursor-default ${
+          hoveredJudge === judge.id ? "opacity-100 font-medium" : "opacity-40"
+        }`}
+        onMouseEnter={() => setHoveredJudge(judge.id)}
+        onMouseLeave={() => setHoveredJudge(null)}
+      >
+        {judge.name}
+      </div>
+    ))}
   </div>
 ));
 
 const JudgesMobile = memo(({ judges }) => (
-  <div className="block sm:hidden mx-auto bg-black max-w-[91.467%]">
-    <div className="flex flex-col justify-center items-start gap-[0.625rem] flex-shrink-0 border-l border-r border-l-edge border-r-edge py-6 px-4 ">
-      {/* <div className="flex flex-col items-start gap-6 self-stretch">
-        <div className="flex w-full h-auto py-1 px-0 content-center items-center gap-2 self-stretch">
-          <div className="text-[#EDEDED] font-spacegrotesk text-[2rem] font-normal leading-[36px] tracking-[-1.28px]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt
-          </div>
-        </div>
-      </div> */}
+  <div className="block md:hidden mx-auto bg-white dark:bg-black max-w-[92%] transition-colors duration-300">
+    <div className="flex flex-col justify-center items-start gap-4 flex-shrink-0 border-l border-r border-l-edge border-r-edge py-6 px-4">
       <div className="flex h-fit items-start self-stretch">
-        <div className="text-[#EDEDED] font-spacegrotesk text-[2rem] font-normal leading-[60px] tracking-[-2.56px]">
+        <div className="text-neutral-900 dark:text-[#EDEDED] font-spacegrotesk text-[2rem] font-normal leading-[48px] tracking-[-1.5px] transition-colors">
           Past Judges
         </div>
-        <div className="flex w-auto h-auto flex-col justify-center text-[#A1A1A1] font-spacemono text-[1.125rem] not-italic font-normal leading-[28px] ">
+        <div className="flex w-auto h-auto flex-col justify-center text-neutral-500 dark:text-[#A1A1A1] font-spacemono text-[1.125rem] not-italic font-normal leading-[28px] transition-colors">
           (2)
         </div>
       </div>
-      <div className="flex w-full justify-center items-center gap-[0.625rem] flex-wrap">
+      <div className="grid grid-cols-2 gap-3 w-full">
         {judges.map((judge) => (
           <div
             key={judge.id}
-            className="flex content-center items-center w-[45%] aspect-square object-cover relative border border-dashed border-[#454545] cursor-default gap-[5px] p-[5px]"
+            className="flex flex-col border border-dashed border-neutral-300 dark:border-[#454545] cursor-default p-2 rounded transition-colors"
           >
-            <div className="flex flex-col justify-start items-start">
-              <div>
-                <img
-                  src={judge.imgurl}
-                  alt={judge.name}
-                  width="100%"
-                  height="100%"
-                  className={`object-cover w-full h-full transition-transform duration-300  }`}
-                />
-              </div>
-              <div className="text-offwhite font-spacemono text-[0.813rem] font-normal uppercase text-left bg-transparent select-none cursor-default p-1">
-                <div className="flex flex-col gap-[0.3125rem]">
-                  <div>{judge.name}</div>
-                  <div>{judge.company}</div>
-                </div>
-              </div>
+            <div className="aspect-square w-full overflow-hidden rounded">
+              <img
+                src={judge.imgurl}
+                alt={judge.name}
+                className="object-cover w-full h-full"
+              />
+            </div>
+            <div className="text-neutral-900 dark:text-offwhite font-spacemono text-[0.75rem] font-normal uppercase text-left pt-2 transition-colors">
+              <div className="font-bold truncate">{judge.name}</div>
+              <div className="text-neutral-500 dark:text-neutral-400 text-[0.7rem] truncate">{judge.company}</div>
             </div>
           </div>
         ))}
@@ -70,21 +54,15 @@ const JudgesMobile = memo(({ judges }) => (
 ));
 
 const JudgesDesktop = memo(({ judges, hoveredJudge, setHoveredJudge }) => (
-  <div className="hidden sm:block mx-auto bg-black max-w-[93.194%]">
-    <div className="flex h-full py-[70px] px-[46px] justify-between items-start content-start gap-y-[92px] flex-wrap border-r border-l border-r-edge border-l-edge bg-black">
-      {/* <div className="flex w-full h-auto py-1 px-0 content-center items-center gap-2">
-            <div className="text-[#EDEDED] font-spacegrotesk text-[64px] font-normal leading-[64px] ">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt
-            </div>
-          </div> */}
-      <div className="flex w-[86%] justify-start items-start gap-[187.4px] flex-shrink-0 ">
-        <div className="flex w-1/4 flex-col justify-start items-start gap-[84px] flex-shrink-0">
+  <div className="hidden md:block mx-auto bg-white dark:bg-black max-w-[95%] xl:max-w-[93.194%] transition-colors duration-300">
+    <div className="flex h-full py-10 lg:py-16 px-6 lg:px-[46px] justify-between items-start border-r border-l border-r-edge border-l-edge bg-white dark:bg-black transition-colors">
+      <div className="flex w-full flex-col md:flex-row justify-between items-start gap-8 lg:gap-14 xl:gap-20">
+        <div className="w-full md:w-1/3 lg:w-1/4 flex flex-col justify-start items-start gap-8 lg:gap-14 flex-shrink-0">
           <div className="flex h-fit items-start self-stretch">
-            <div className="text-[#EDEDED] font-spacegrotesk text-[4rem] font-normal leading-[60px] whitespace-nowrap">
+            <div className="text-neutral-900 dark:text-[#EDEDED] font-spacegrotesk text-3xl lg:text-4xl xl:text-[4rem] font-normal leading-tight whitespace-nowrap transition-colors">
               Past Judges
             </div>
-            <div className="flex w-auto h-auto flex-col justify-center text-[#A1A1A1] font-geistmono text-[1.125rem] not-italic font-normal leading-[28px] ">
+            <div className="flex w-auto h-auto flex-col justify-center text-neutral-500 dark:text-[#A1A1A1] font-spacemono text-[1.125rem] not-italic font-normal leading-[28px] transition-colors">
               (2)
             </div>
           </div>
@@ -94,31 +72,29 @@ const JudgesDesktop = memo(({ judges, hoveredJudge, setHoveredJudge }) => (
             setHoveredJudge={setHoveredJudge}
           />
         </div>
-        <div className="flex w-3/4 items-start content-start gap-5 flex-shrink-0 flex-wrap">
+        <div className="w-full md:w-2/3 lg:w-3/4 grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-5">
           {judges.map((judge) => (
             <div
               key={judge.id}
-              className="flex content-center items-center w-[30%] aspect-square overflow-hidden object-cover relative border border-dashed border-[#454545] cursor-default"
+              className="aspect-square overflow-hidden relative border border-dashed border-neutral-300 dark:border-[#454545] rounded cursor-default transition-colors"
               onMouseEnter={() => setHoveredJudge(judge.id)}
               onMouseLeave={() => setHoveredJudge(null)}
             >
               <img
                 src={judge.imgurl}
                 alt={judge.name}
-                width="100%"
-                height="100%"
-                className={`object-cover w-full h-full grayscale transition-transform duration-300 ${
+                className={`object-cover w-full h-full transition-transform duration-300 ${
                   hoveredJudge === judge.id
-                    ? "grayscale-0 scale-105"
+                    ? "scale-105"
                     : "grayscale"
                 }`}
               />
               <div
-                className={`absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-70 transition-opacity duration-300 ${
-                  hoveredJudge === judge.id ? "opacity-100" : "opacity-70"
+                className={`absolute inset-0 bg-gradient-to-b from-transparent to-black transition-opacity duration-300 ${
+                  hoveredJudge === judge.id ? "opacity-85" : "opacity-60"
                 }`}
               />
-              <div className="hidden sm:block text-offwhite font-spacemono text-[0.813rem] font-normal uppercase absolute bottom-0 right-[5px] text-right bg-transparent select-none cursor-default">
+              <div className="text-white font-spacemono text-[0.75rem] lg:text-[0.813rem] font-normal uppercase absolute bottom-0 right-[6px] left-[6px] text-right bg-transparent select-none cursor-default truncate">
                 {`${judge.name} | ${judge.company}`}
               </div>
             </div>

@@ -4,21 +4,21 @@ import { sponsors } from "../constants";
 const SponsorCategory = memo(({ category }) => (
   <div
     key={category.id}
-    className="flex w-full flex-col items-start gap-[50px]"
+    className="flex w-full flex-col items-start gap-6 lg:gap-10"
   >
-    <div className="text-offwhite text-right font-spacegrotesk text-[2rem] not-italic font-normal leading-8">
+    <div className="text-neutral-800 dark:text-offwhite font-spacegrotesk text-xl sm:text-2xl lg:text-[2rem] not-italic font-normal leading-8 transition-colors">
       {category.name}
     </div>
-    <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-around gap-[1.25rem] self-stretch flex-wrap sm:gap-[0.625rem]">
+    <div className="flex flex-wrap items-center justify-center sm:justify-around gap-6 sm:gap-8 lg:gap-10 self-stretch">
       {category.data.map((sponsor) => (
         <div
           key={sponsor.id}
-          className="select-none pointer-events-none flex flex-col w-fit items-center justify-center gap-2 self-center sm:self-stretch"
+          className="select-none pointer-events-none flex flex-col w-fit items-center justify-center p-2"
         >
           <img
             src={sponsor.imgurl}
             alt={sponsor.name}
-            className="max-w-[120px] sm:max-w-none sm:w-fit sm:h-fit grayscale "
+            className="max-w-[100px] sm:max-w-[130px] lg:max-w-[160px] max-h-12 sm:max-h-16 w-auto h-auto object-contain grayscale dark:grayscale invert dark:invert-0 opacity-80 hover:opacity-100 transition-all duration-300"
           />
         </div>
       ))}
@@ -27,36 +27,36 @@ const SponsorCategory = memo(({ category }) => (
 ));
 
 const SponsorsMobile = memo(() => (
-  <div className="block sm:hidden mx-auto bg-black max-w-[91.467%]">
-    <div className="flex flex-col justify-center items-start gap-[0.625rem] flex-shrink-0 border-l border-r border-l-edge border-r-edge py-6 px-4">
+  <div className="block md:hidden mx-auto bg-white dark:bg-black max-w-[92%] transition-colors duration-300">
+    <div className="flex flex-col justify-center items-start gap-6 flex-shrink-0 border-l border-r border-l-edge border-r-edge py-6 px-4">
       <div className="flex h-fit items-start self-stretch">
-        <div className="text-[#EDEDED] font-spacegrotesk text-[2rem] font-normal leading-[60px] tracking-[-2.56px]">
+        <div className="text-neutral-900 dark:text-[#EDEDED] font-spacegrotesk text-[2rem] font-normal leading-[48px] tracking-[-1.5px] transition-colors">
           Sponsors
         </div>
-        <div className="flex w-auto h-auto flex-col justify-center text-[#A1A1A1] font-spacemono text-[18px] not-italic font-normal leading-[28px] ">
+        <div className="flex w-auto h-auto flex-col justify-center text-neutral-500 dark:text-[#A1A1A1] font-spacemono text-[18px] not-italic font-normal leading-[28px] transition-colors">
           (3)
         </div>
       </div>
       {sponsors.map((category) => (
-        <SponsorCategory category={category} />
+        <SponsorCategory key={category.id} category={category} />
       ))}
     </div>
   </div>
 ));
 
 const SponsorsDesktop = memo(() => (
-  <div className="hidden sm:block mx-auto bg-black max-w-[93.194%]">
-    <div className="flex py-9 px-[2.875rem] flex-col items-start gap-[2.875rem] bg-black border-r border-l border-r-edge border-l-edge">
+  <div className="hidden md:block mx-auto bg-white dark:bg-black max-w-[95%] xl:max-w-[93.194%] transition-colors duration-300">
+    <div className="flex py-10 lg:py-14 px-6 lg:px-[2.875rem] flex-col items-start gap-10 lg:gap-14 bg-white dark:bg-black border-r border-l border-r-edge border-l-edge transition-colors">
       <div className="flex items-start">
-        <div className="text-offwhite font-spacegrotesk text-[4rem] font-normal not-italic leading-[3.75rem] ">
+        <div className="text-neutral-900 dark:text-offwhite font-spacegrotesk text-3xl lg:text-4xl xl:text-[4rem] font-normal not-italic leading-tight transition-colors">
           Sponsors
         </div>
-        <div className="flex w-auto h-auto flex-col justify-center text-[#A1A1A1] font-medium not-italic font-spacemono leading-[28px]">
+        <div className="flex w-auto h-auto flex-col justify-center text-neutral-500 dark:text-[#A1A1A1] font-medium not-italic font-spacemono leading-[28px] transition-colors">
           (3)
         </div>
       </div>
       {sponsors.map((category) => (
-        <SponsorCategory category={category} />
+        <SponsorCategory key={category.id} category={category} />
       ))}
     </div>
   </div>

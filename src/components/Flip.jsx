@@ -67,10 +67,10 @@ const Flip = () => {
       }, []);
   return (
     <div>
-        <div ref={dateRef} className='text-[#A1A1A1] font-spacemono text-sm font-normal leading-[17.5px] tracking-[0.35px] uppercase'>
+        <div ref={dateRef} className='text-neutral-500 dark:text-[#A1A1A1] font-spacemono text-sm font-normal leading-[17.5px] tracking-[0.35px] uppercase transition-colors'>
         OCT 21-23 2026 | GJCH
         </div>
-        <div ref={daysLeftRef} className='text-[#A1A1A1] font-spacemono text-sm font-normal leading-[17.5px] tracking-[0.35px] uppercase' style={{ display: 'none' }}>
+        <div ref={daysLeftRef} className='text-neutral-500 dark:text-[#A1A1A1] font-spacemono text-sm font-normal leading-[17.5px] tracking-[0.35px] uppercase transition-colors' style={{ display: 'none' }}>
             {`${daysLeft} days to go`}
         </div>
     </div>

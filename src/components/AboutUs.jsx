@@ -2,28 +2,28 @@ import React, { memo, Suspense } from "react";
 import { aboutus } from "../assets";
 
 const AboutUsMobile = memo(() => (
-  <div className="block sm:hidden mx-auto bg-black max-w-[91.467%]">
-    <div className="max-h-screen flex flex-col justify-center items-start gap-[0.625rem] flex-shrink-0 border-l border-r border-l-edge border-r-edge py-6 px-4">
-      <div className="flex items-start content-start gap-y-6 gap-x-9 flex-1 py-2 flex-shrink-0 basis-0 flex-wrap">
+  <div className="block md:hidden mx-auto bg-white dark:bg-black max-w-[92%] transition-colors duration-300">
+    <div className="flex flex-col justify-center items-start gap-4 flex-shrink-0 border-l border-r border-l-edge border-r-edge py-6 px-4">
+      <div className="flex items-start content-start gap-y-4 flex-1 py-1 flex-shrink-0 basis-0 flex-wrap w-full">
         <div className="flex w-auto h-auto items-start">
-          <div className="flex w-auto h-fit flex-col justify-center text-offwhite font-spacegrotesk text-[2rem] font-normal leading-[60px] tracking-[-2.56px]">
+          <div className="flex w-auto h-fit flex-col justify-center text-neutral-900 dark:text-offwhite font-spacegrotesk text-[2rem] font-normal leading-[48px] tracking-[-1.5px] transition-colors">
             About us
           </div>
-          <div className="flex w-auto h-auto flex-col justify-center text-[#A1A1A1] font-spacemono leading-[28px]">
+          <div className="flex w-auto h-auto flex-col justify-center text-neutral-500 dark:text-[#A1A1A1] font-spacemono leading-[28px] transition-colors">
             (1)
           </div>
         </div>
-        <div className="w-full h-auto border rounded-[8px] p-2 border-[#454545]">
+        <div className="w-full h-auto border rounded-[8px] p-2 border-neutral-300 dark:border-[#454545] transition-colors">
           <img
             src={aboutus}
             alt="about us"
             width="100%"
             height="100%"
-            className="object-cover w-full h-full rounded"
+            className="object-cover w-full h-auto rounded"
           />
         </div>
-        <div className="flex flex-col content-center items-center gap-[0.625rem] flex-1 flex-shrink-0 basis-0">
-          <div className="max-w-fit h-auto text-[#A0A0A0] font-spacemono text-[0.813rem] text-justify leading-[18px] tracking-[0.6px] self-stretch">
+        <div className="flex flex-col content-center items-center gap-3 flex-1 flex-shrink-0 basis-0 w-full">
+          <div className="w-full h-auto text-neutral-600 dark:text-[#A0A0A0] font-spacemono text-[0.875rem] text-justify leading-relaxed tracking-[0.4px] self-stretch transition-colors">
             Welcome to TransfiNITTe'26, NIT Trichy's premier hackathon, hosted
             by the Technical Council and SCIENT. This is where innovation meets
             action.
@@ -46,19 +46,19 @@ const AboutUsMobile = memo(() => (
 ));
 
 const AboutUsDesktop = memo(() => (
-  <div className="hidden sm:block mx-auto bg-black max-w-[93.194%] select-none pointer-events-none">
-    <div className="flex w-full py-9 px-[46px] justify-between items-end border-r border-l border-r-edge border-l-edge">
-      <div className="flex flex-row gap-12">
-        <div className="flex max-w-[50%] h-auto flex-col items-start gap-[37px] flex-shrink-0">
+  <div className="hidden md:block mx-auto bg-white dark:bg-black max-w-[95%] xl:max-w-[93.194%] select-none pointer-events-none transition-colors duration-300">
+    <div className="flex w-full py-8 lg:py-12 px-6 lg:px-[46px] justify-between items-start border-r border-l border-r-edge border-l-edge">
+      <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start w-full">
+        <div className="w-full lg:w-1/2 flex flex-col items-start gap-6 lg:gap-[37px] flex-shrink-0">
           <div className="flex w-auto h-auto items-start">
-            <div className="flex w-auto h-fit flex-col justify-center text-offwhite font-spacegrotesk text-[3rem] font-normal leading-[60px]">
+            <div className="flex w-auto h-fit flex-col justify-center text-neutral-900 dark:text-offwhite font-spacegrotesk text-3xl lg:text-[3rem] font-normal leading-tight lg:leading-[60px] transition-colors">
               About us
             </div>
-            <div className="flex w-auto h-auto flex-col justify-center text-[#A1A1A1] font-spacemono leading-[28px]">
+            <div className="flex w-auto h-auto flex-col justify-center text-neutral-500 dark:text-[#A1A1A1] font-spacemono leading-[28px] transition-colors">
               (1)
             </div>
           </div>
-          <div className="max-w-fit h-auto text-[#A0A0A0] font-spacemono text-[1rem] ">
+          <div className="w-full h-auto text-neutral-600 dark:text-[#A0A0A0] font-spacemono text-[0.95rem] lg:text-[1rem] leading-relaxed transition-colors">
             Welcome to TransfiNITTe'26, NIT Trichy's premier hackathon, hosted
             by the Technical Council and SCIENT. This is where innovation meets
             action.
@@ -75,19 +75,20 @@ const AboutUsDesktop = memo(() => (
             that truly matters.
           </div>
         </div>
-        <div className="w-1/2 h-auto border border-dashed p-2 border-[#454545] rounded-[4px] select-none pointer-events-none">
+        <div className="w-full lg:w-1/2 h-auto border border-dashed p-2 border-neutral-300 dark:border-[#454545] rounded-[4px] select-none pointer-events-none transition-colors">
           <img
             src={aboutus}
             alt="about us"
             width="100%"
             height="100%"
-            className="object-cover w-full h-full rounded"
+            className="object-cover w-full h-auto rounded max-h-[480px]"
           />
         </div>
       </div>
     </div>
   </div>
 ));
+
 const AboutUs = () => {
   return (
     <div>
