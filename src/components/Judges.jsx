@@ -22,7 +22,7 @@ const JudgesMobile = memo(({ judges }) => (
   <div className="block md:hidden mx-auto bg-white dark:bg-black max-w-[92%] transition-colors duration-300">
     <div className="flex flex-col justify-center items-start gap-4 flex-shrink-0 border-l border-r border-l-edge border-r-edge py-6 px-4">
       <div className="flex h-fit items-start self-stretch">
-        <div className="text-neutral-900 dark:text-[#EDEDED] font-spacegrotesk text-[2rem] font-normal leading-[48px] tracking-[-1.5px] transition-colors">
+        <div className="text-neutral-900 dark:text-[#EDEDED] font-spacegrotesk text-[2rem] font-normal leading-[48px] tracking-[-1.5px] transition-colors w-fit">
           Past Judges
         </div>
         <div className="flex w-auto h-auto flex-col justify-center text-neutral-500 dark:text-[#A1A1A1] font-spacemono text-[1.125rem] not-italic font-normal leading-[28px] transition-colors">
@@ -59,7 +59,7 @@ const JudgesDesktop = memo(({ judges, hoveredJudge, setHoveredJudge }) => (
       <div className="flex w-full flex-col md:flex-row justify-between items-start gap-8 lg:gap-14 xl:gap-20">
         <div className="w-full md:w-1/3 lg:w-1/4 flex flex-col justify-start items-start gap-8 lg:gap-14 flex-shrink-0">
           <div className="flex h-fit items-start self-stretch">
-            <div className="text-neutral-900 dark:text-[#EDEDED] font-spacegrotesk text-3xl lg:text-4xl xl:text-[4rem] font-normal leading-tight whitespace-nowrap transition-colors">
+            <div className="text-neutral-900 dark:text-[#EDEDED] font-spacegrotesk text-3xl lg:text-4xl xl:text-[4rem] font-normal leading-tight whitespace-nowrap transition-colors w-fit">
               Past Judges
             </div>
             <div className="flex w-auto h-auto flex-col justify-center text-neutral-500 dark:text-[#A1A1A1] font-spacemono text-[1.125rem] not-italic font-normal leading-[28px] transition-colors">
