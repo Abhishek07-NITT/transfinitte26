@@ -14,7 +14,7 @@ export function ThemeToggle({ className = "" }) {
       className={`relative inline-flex items-center justify-center p-2 rounded-full border border-solid transition-all duration-300 active:scale-90 active:rotate-12 group select-none shadow-sm cursor-pointer ${
         isDark
           ? "border-white/20 bg-white/10 text-white hover:bg-white/20 hover:border-white/40 hover:shadow-[0_0_12px_rgba(255,255,255,0.2)]"
-          : "border-black/20 bg-black/5 text-black hover:bg-black/10 hover:border-black/40 hover:shadow-[0_0_12px_rgba(0,0,0,0.1)]"
+          : "border-[#1D1D1F]/20 bg-[#1D1D1F]/5 text-[#1D1D1F] hover:bg-[#1D1D1F]/10 hover:border-[#1D1D1F]/40 hover:shadow-[0_0_12px_rgba(29,29,31,0.1)]"
       } ${className}`}
       title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
     >

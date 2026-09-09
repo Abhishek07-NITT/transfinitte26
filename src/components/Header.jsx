@@ -17,7 +17,7 @@ const Header = memo(() => {
   const RegisterButton = ({ variant, className }) => (
     <Button variant={variant} onClick={handleClick}>
       <div
-        className={`flex flex-row gap-1 justify-center items-center bg-black text-white dark:bg-offwhite dark:text-black px-2 py-0 rounded-full hover:underline decoration-white dark:decoration-black transition-colors ${className}`}
+        className={`flex flex-row gap-1 justify-center items-center bg-[#6B7FA3] text-white dark:bg-offwhite dark:text-[#1D1D1F] px-2 py-0 rounded-full hover:underline decoration-white dark:decoration-[#1D1D1F] transition-colors ${className}`}
       >
         <div className="text-center font-spacemono text-[0.875rem] not-italic font-bold leading-5 tracking-[0.35px] uppercase">
           REGISTER
@@ -35,10 +35,10 @@ const Header = memo(() => {
       href="https://www.instagram.com/tc_nitt/"
       target="_blank"
       rel="noopener noreferrer"
-      className="hover:underline decoration-black dark:decoration-white"
+      className="hover:underline decoration-[#1D1D1F] dark:decoration-white"
     >
       <button className="flex flex-row gap-1 justify-center items-center">
-        <div className="text-neutral-800 dark:text-offwhite text-center font-spacemono text-[0.875rem] not-italic font-bold leading-5 tracking-[0.35px] uppercase">
+        <div className="text-[#1D1D1F] dark:text-offwhite text-center font-spacemono text-[0.875rem] not-italic font-bold leading-5 tracking-[0.35px] uppercase">
           INSTAGRAM
         </div>
         <div>
@@ -51,7 +51,7 @@ const Header = memo(() => {
 
   const HeaderMobile = memo(() => (
     <div className="block md:hidden relative">
-      <div className="flex items-center justify-between bg-white/90 dark:bg-black/90 backdrop-blur-md shrink-0 w-full border-b border-solid border-black/10 dark:border-b-[#EDEDED26] py-3.5 px-4 sm:px-6 sticky top-0 shadow-sm dark:shadow-md z-50 content-stretch transition-colors duration-300">
+      <div className="flex items-center justify-between bg-[#FFFFFF]/90 dark:bg-black/90 backdrop-blur-md shrink-0 w-full border-b border-solid border-[#1D1D1F]/10 dark:border-b-[#EDEDED26] py-3.5 px-4 sm:px-6 sticky top-0 shadow-sm dark:shadow-md z-50 content-stretch transition-colors duration-300">
         <Suspense fallback={<div>Loading...</div>}>
           <img src={tfbadge} alt="Transfinitte Badge" className="dark:invert-0 invert transition-all w-auto h-5 sm:h-6" />
         </Suspense>
@@ -64,14 +64,14 @@ const Header = memo(() => {
   ));
 
   const HeaderDesktop = memo(() => (
-    <div className="hidden md:flex justify-between items-center h-max py-4 lg:py-5 bg-white/90 dark:bg-black/90 backdrop-blur-md shrink-0 self-stretch border-b border-solid border-black/10 dark:border-b-[#EDEDED26] px-6 lg:px-12 sticky top-0 shadow-sm dark:shadow-md z-50 content-stretch transition-colors duration-300">
+    <div className="hidden md:flex justify-between items-center h-max py-4 lg:py-5 bg-[#FFFFFF]/90 dark:bg-black/90 backdrop-blur-md shrink-0 self-stretch border-b border-solid border-[#1D1D1F]/10 dark:border-b-[#EDEDED26] px-6 lg:px-12 sticky top-0 shadow-sm dark:shadow-md z-50 content-stretch transition-colors duration-300">
       <div className="w-auto shrink-0 min-w-[140px]">
         <Suspense fallback={<div>Loading...</div>}>
           <Flip />
         </Suspense>
       </div>
       <div className="flex flex-row flex-grow gap-2 self-stretch items-center justify-center">
-        <div className="text-black dark:text-white text-center text-lg lg:text-xl font-spacegrotesk items-center font-medium leading-5 tracking-[-0.1px] uppercase transition-colors">
+        <div className="text-[#1D1D1F] dark:text-white text-center text-lg lg:text-xl font-spacegrotesk items-center font-medium leading-5 tracking-[-0.1px] uppercase transition-colors">
           Transfinitte
         </div>
         <div>

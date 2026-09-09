@@ -4,7 +4,7 @@ import { bubble, bubbleLight, tfhero, tfherosm } from "../assets";
 const Flip = lazy(() => import("./Flip"));
 
 const HeroMobile = memo(() => (
-  <div className="block md:hidden mx-auto bg-white dark:bg-black max-w-[92%] transition-colors duration-300">
+  <div className="block md:hidden mx-auto bg-[#FFFFFF] dark:bg-black max-w-[92%] transition-colors duration-300">
     <div className="flex flex-col justify-center items-center flex-shrink-0 border-l border-r border-l-edge border-r-edge py-4 px-2">
       <div className="w-full flex justify-center px-2">
         <Suspense fallback={<div>Loading...</div>}>
@@ -39,7 +39,7 @@ const HeroMobile = memo(() => (
 ));
 
 const HeroDesktop = memo(() => (
-  <div className="hidden md:block mx-auto bg-white dark:bg-black max-w-[95%] xl:max-w-[93.194%] transition-colors duration-300">
+  <div className="hidden md:block mx-auto bg-[#FFFFFF] dark:bg-black max-w-[95%] xl:max-w-[93.194%] transition-colors duration-300">
     <div className="px-6 lg:px-12 flex-shrink-0 border-l border-r border-l-edge border-r-edge py-6 lg:py-10 flex flex-col items-center">
       <div className="w-full flex items-center justify-center">
         <Suspense fallback={<div>Loading...</div>}>

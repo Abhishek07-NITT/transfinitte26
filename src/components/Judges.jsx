@@ -6,7 +6,7 @@ const JudgesList = memo(({ judges, hoveredJudge, setHoveredJudge }) => (
     {judges.map((judge) => (
       <div
         key={judge.id}
-        className={`text-neutral-900 dark:text-offwhite font-spacegrotesk text-xl lg:text-2xl xl:text-[32px] not-italic font-normal leading-tight transition-all duration-300 select-none cursor-default ${
+        className={`text-[#1D1D1F] dark:text-offwhite font-spacegrotesk text-xl lg:text-2xl xl:text-[32px] not-italic font-normal leading-tight transition-all duration-300 select-none cursor-default ${
           hoveredJudge === judge.id ? "opacity-100 font-medium" : "opacity-40"
         }`}
         onMouseEnter={() => setHoveredJudge(judge.id)}
@@ -19,13 +19,13 @@ const JudgesList = memo(({ judges, hoveredJudge, setHoveredJudge }) => (
 ));
 
 const JudgesMobile = memo(({ judges }) => (
-  <div className="block md:hidden mx-auto bg-white dark:bg-black max-w-[92%] transition-colors duration-300">
+  <div className="block md:hidden mx-auto bg-[#FFFFFF] dark:bg-black max-w-[92%] transition-colors duration-300">
     <div className="flex flex-col justify-center items-start gap-4 flex-shrink-0 border-l border-r border-l-edge border-r-edge py-6 px-4">
       <div className="flex h-fit items-start self-stretch">
-        <div className="text-neutral-900 dark:text-[#EDEDED] font-spacegrotesk text-[2rem] font-normal leading-[48px] tracking-[-1.5px] transition-colors w-fit">
+        <div className="text-[#1D1D1F] dark:text-[#EDEDED] font-spacegrotesk text-[2rem] font-normal leading-[48px] tracking-[-1.5px] transition-colors w-fit">
           Past Judges
         </div>
-        <div className="flex w-auto h-auto flex-col justify-center text-neutral-500 dark:text-[#A1A1A1] font-spacemono text-[1.125rem] not-italic font-normal leading-[28px] transition-colors">
+        <div className="flex w-auto h-auto flex-col justify-center text-[#6B6B6B] dark:text-[#A1A1A1] font-spacemono text-[0.65rem] not-italic font-normal leading-[28px] transition-colors align-super -mt-2">
           (2)
         </div>
       </div>
@@ -33,7 +33,7 @@ const JudgesMobile = memo(({ judges }) => (
         {judges.map((judge) => (
           <div
             key={judge.id}
-            className="flex flex-col border border-dashed border-neutral-300 dark:border-[#454545] cursor-default p-2 rounded transition-colors"
+            className="flex flex-col border border-dashed border-[#E6E6E3] dark:border-[#454545] cursor-default p-2 rounded transition-colors"
           >
             <div className="aspect-square w-full overflow-hidden rounded">
               <img
@@ -42,9 +42,9 @@ const JudgesMobile = memo(({ judges }) => (
                 className="object-cover w-full h-full"
               />
             </div>
-            <div className="text-neutral-900 dark:text-offwhite font-spacemono text-[0.75rem] font-normal uppercase text-left pt-2 transition-colors">
+            <div className="text-[#1D1D1F] dark:text-offwhite font-spacemono text-[0.75rem] font-normal uppercase text-left pt-2 transition-colors">
               <div className="font-bold truncate">{judge.name}</div>
-              <div className="text-neutral-500 dark:text-neutral-400 text-[0.7rem] truncate">{judge.company}</div>
+              <div className="text-[#6B6B6B] dark:text-neutral-400 text-[0.7rem] truncate">{judge.company}</div>
             </div>
           </div>
         ))}
@@ -54,15 +54,15 @@ const JudgesMobile = memo(({ judges }) => (
 ));
 
 const JudgesDesktop = memo(({ judges, hoveredJudge, setHoveredJudge }) => (
-  <div className="hidden md:block mx-auto bg-white dark:bg-black max-w-[95%] xl:max-w-[93.194%] transition-colors duration-300">
-    <div className="flex h-full py-10 lg:py-16 px-6 lg:px-[46px] justify-between items-start border-r border-l border-r-edge border-l-edge bg-white dark:bg-black transition-colors">
+  <div className="hidden md:block mx-auto bg-[#FFFFFF] dark:bg-black max-w-[95%] xl:max-w-[93.194%] transition-colors duration-300">
+    <div className="flex h-full py-10 lg:py-16 px-6 lg:px-[46px] justify-between items-start border-r border-l border-r-edge border-l-edge bg-[#FFFFFF] dark:bg-black transition-colors">
       <div className="flex w-full flex-col md:flex-row justify-between items-start gap-8 lg:gap-14 xl:gap-20">
         <div className="w-full md:w-1/3 lg:w-1/4 flex flex-col justify-start items-start gap-8 lg:gap-14 flex-shrink-0">
           <div className="flex h-fit items-start self-stretch">
-            <div className="text-neutral-900 dark:text-[#EDEDED] font-spacegrotesk text-3xl lg:text-4xl xl:text-[4rem] font-normal leading-tight whitespace-nowrap transition-colors w-fit">
+            <div className="text-[#1D1D1F] dark:text-[#EDEDED] font-spacegrotesk text-3xl lg:text-4xl xl:text-[4rem] font-normal leading-tight whitespace-nowrap transition-colors w-fit">
               Past Judges
             </div>
-            <div className="flex w-auto h-auto flex-col justify-center text-neutral-500 dark:text-[#A1A1A1] font-spacemono text-[1.125rem] not-italic font-normal leading-[28px] transition-colors">
+            <div className="flex w-auto h-auto flex-col justify-center text-[#6B6B6B] dark:text-[#A1A1A1] font-spacemono text-[0.65rem] not-italic font-normal leading-[28px] transition-colors align-super -mt-2">
               (2)
             </div>
           </div>
@@ -76,7 +76,7 @@ const JudgesDesktop = memo(({ judges, hoveredJudge, setHoveredJudge }) => (
           {judges.map((judge) => (
             <div
               key={judge.id}
-              className="aspect-square overflow-hidden relative border border-dashed border-neutral-300 dark:border-[#454545] rounded cursor-default transition-colors"
+              className="aspect-square overflow-hidden relative border border-dashed border-[#E6E6E3] dark:border-[#454545] rounded cursor-default transition-colors"
               onMouseEnter={() => setHoveredJudge(judge.id)}
               onMouseLeave={() => setHoveredJudge(null)}
             >
