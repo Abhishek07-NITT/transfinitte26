@@ -26,7 +26,7 @@ const JudgesMobile = memo(({ judges }) => (
           Past Judges
         </div>
         <div className="flex w-auto h-auto flex-col justify-center text-[#6B6B6B] dark:text-[#A1A1A1] font-spacemono text-[0.65rem] not-italic font-normal leading-[28px] transition-colors align-super -mt-2">
-          (2)
+          (3)
         </div>
       </div>
       <div className="grid grid-cols-2 gap-3 w-full">
@@ -63,7 +63,7 @@ const JudgesDesktop = memo(({ judges, hoveredJudge, setHoveredJudge }) => (
               Past Judges
             </div>
             <div className="flex w-auto h-auto flex-col justify-center text-[#6B6B6B] dark:text-[#A1A1A1] font-spacemono text-[0.65rem] not-italic font-normal leading-[28px] transition-colors align-super -mt-2">
-              (2)
+              (3)
             </div>
           </div>
           <JudgesList

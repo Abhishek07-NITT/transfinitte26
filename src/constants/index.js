@@ -78,6 +78,25 @@ export const judges = [
   },
 ];
 
+export const domains = [
+  {
+    id: "0",
+    name: "Hardware",
+  },
+  {
+    id: "1",
+    name: "Software",
+  },
+  {
+    id: "2",
+    name: "Management",
+  },
+  {
+    id: "3",
+    name: "Entrepreneurship",
+  },
+];
+
 export const sponsors = [
   {
     id: "0",
