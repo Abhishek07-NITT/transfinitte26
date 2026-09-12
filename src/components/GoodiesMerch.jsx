@@ -1,0 +1,97 @@
+import React, { memo, Suspense } from "react";
+
+export const goodies = [
+  {
+    name: "Transfinitte T-Shirt",
+    detail: "Limited edition event tee",
+    price: "₹499",
+    icon: "✦",
+    accent: "bg-[#DCE8FF] dark:bg-[#18243A]",
+  },
+  {
+    name: "Sticker Pack",
+    detail: "Laptop-ready hacker stickers",
+    price: "₹149",
+    icon: "✺",
+    accent: "bg-[#FBE7D8] dark:bg-[#382318]",
+  },
+  {
+    name: "Developer Kit",
+    detail: "Badge, lanyard and goodies",
+    price: "₹299",
+    icon: "⌘",
+    accent: "bg-[#E4F1DC] dark:bg-[#1E321A]",
+  },
+];
+
+export const GoodieCard = memo(({ item }) => (
+  <article className="flex min-h-[260px] flex-1 flex-col justify-between rounded-[4px] border border-[#E1E6EB] bg-white p-5 transition-colors duration-300 dark:border-[#454545] dark:bg-[#0A0A0A] lg:p-6">
+    <div className={`flex h-28 items-center justify-center rounded-[3px] text-6xl text-[#1D1D1F] dark:text-[#EDEDED] ${item.accent}`}>
+      <span aria-hidden="true">{item.icon}</span>
+    </div>
+    <div className="mt-5 flex items-end justify-between gap-4">
+      <div>
+        <h3 className="font-spacegrotesk text-xl font-normal text-[#1D1D1F] dark:text-[#EDEDED]">
+          {item.name}
+        </h3>
+        <p className="mt-1 font-spacemono text-xs text-[#6B6B6B] dark:text-[#A1A1A1]">
+          {item.detail}
+        </p>
+      </div>
+      <span className="whitespace-nowrap font-spacegrotesk text-xl text-[#1D1D1F] dark:text-[#EDEDED]">
+        {item.price}
+      </span>
+    </div>
+  </article>
+));
+
+const GoodiesMerchContent = () => (
+  <section id="goodies-merch" className="mx-auto max-w-[95%] bg-[#F3F6FA] transition-colors duration-300 dark:bg-black xl:max-w-[93.194%]">
+    <div className="border-x border-r-edge border-l-edge px-4 py-10 sm:px-6 lg:px-[46px] lg:py-16">
+      <div className="flex flex-col gap-8 lg:gap-10">
+        <div className="flex items-start justify-between gap-5">
+          <div>
+            <div className="flex items-start">
+              <h2 className="font-spacegrotesk text-3xl font-normal leading-tight text-[#1D1D1F] dark:text-[#EDEDED] lg:text-4xl xl:text-[4rem]">
+                Goodies &amp; Merch
+              </h2>
+              <span className="font-spacemono text-[0.65rem] leading-7 text-[#6B6B6B] dark:text-[#A1A1A1]">
+                (3)
+              </span>
+            </div>
+            <p className="mt-3 max-w-xl font-spacemono text-xs leading-6 text-[#6B6B6B] dark:text-[#A1A1A1] sm:text-sm">
+              Take a piece of Transfinitte home. Grab limited-edition gear and
+              goodies before they are gone.
+            </p>
+          </div>
+          <span className="hidden font-spacemono text-xs text-[#6B6B6B] dark:text-[#A1A1A1] sm:block">
+            LIMITED DROP
+          </span>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-3 lg:gap-5">
+          {goodies.map((item) => (
+            <GoodieCard key={item.name} item={item} />
+          ))}
+        </div>
+
+        <a
+          href="/merch"
+          className="inline-flex w-fit items-center gap-3 rounded-[3px] bg-[#1D1D1F] px-5 py-3 font-spacemono text-xs text-white transition-transform hover:-translate-y-0.5 dark:bg-[#EDEDED] dark:text-black"
+        >
+          Shop the collection <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+);
+
+const GoodiesMerch = () => (
+  <div className="select-none">
+    <Suspense fallback={<div>Loading...</div>}>
+      <GoodiesMerchContent />
+    </Suspense>
+  </div>
+);
+
+export default GoodiesMerch;
