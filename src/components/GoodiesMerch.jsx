@@ -75,12 +75,6 @@ const GoodiesMerchContent = () => (
           ))}
         </div>
 
-        <a
-          href="/merch"
-          className="inline-flex w-fit items-center gap-3 rounded-[3px] bg-[#1D1D1F] px-5 py-3 font-spacemono text-xs text-white transition-transform hover:-translate-y-0.5 dark:bg-[#EDEDED] dark:text-black"
-        >
-          Shop the collection <span aria-hidden="true">↗</span>
-        </a>
       </div>
     </div>
   </section>
