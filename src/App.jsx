@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from "react";
 
 const Header = lazy(() => import("./components/Header"));
 const Hero = lazy(() => import("./components/Hero"));
+const Timer = lazy(() => import("./components/Timer"));
 const AboutUs = lazy(() => import("./components/AboutUs"));
 const Domains = lazy(() => import("./components/DomainsPrize"));
 const Timeline = lazy(() => import("./components/Timeline"));
@@ -17,6 +18,7 @@ function App() {
       <Suspense fallback={<div>Loading...</div>}>
         <Header />
         <Hero />
+        <Timer />
         <AboutUs />
         <Domains />
         <Timeline />
