@@ -3,6 +3,7 @@ import { arrowbl, arrowwh, numbersvg, tfbadge } from "../assets";
 import { toast } from "sonner";
 import { Button } from "./ui/button";
 import ThemeToggle from "./ThemeToggle";
+import { GOOGLE_CALENDAR_URL } from "../constants";
 
 const Flip = lazy(() => import("./Flip"));
 
@@ -30,16 +31,16 @@ const Header = memo(() => {
     </Button>
   );
 
-  const InstagramButton = () => (
+  const CalendarButton = () => (
     <a
-      href="https://www.instagram.com/tc_nitt/"
+      href={GOOGLE_CALENDAR_URL}
       target="_blank"
       rel="noopener noreferrer"
       className="hover:underline decoration-[#1D1D1F] dark:decoration-white"
     >
       <button className="flex flex-row gap-1 justify-center items-center">
         <div className="text-[#1D1D1F] dark:text-offwhite text-center font-spacemono text-[0.875rem] not-italic font-bold leading-5 tracking-[0.35px] uppercase">
-          INSTAGRAM
+          ADD TO CALENDAR
         </div>
         <div>
           <img src={arrowbl} className="max-w-none w-fit dark:hidden" alt="arrow" />
@@ -81,7 +82,7 @@ const Header = memo(() => {
         </div>
       </div>
       <div className="w-fit h-fit flex gap-3 lg:gap-6 justify-center items-center">
-        <InstagramButton />
+        <CalendarButton />
         <ThemeToggle />
         <RegisterButton variant="outline" className="px-4 lg:px-5 py-2" />
       </div>

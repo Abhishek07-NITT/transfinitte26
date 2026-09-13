@@ -1,10 +1,11 @@
 import React, { memo, Suspense, useRef } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { CalendarPlus } from "lucide-react";
+import { GOOGLE_CALENDAR_URL } from "../constants";
 
 const timelineData = [
   {
-    date: "Oct 10",
+    date: "Oct 20",
     day: "DAY-1",
     events: [
       { time: "06:30 PM", title: "Inauguration" },
@@ -14,7 +15,7 @@ const timelineData = [
     ],
   },
   {
-    date: "Oct 11",
+    date: "Oct 21",
     day: "DAY-2",
     events: [
       { time: "08:30 AM", title: "Breakfast" },
@@ -24,7 +25,7 @@ const timelineData = [
     ],
   },
   {
-    date: "Oct 12",
+    date: "Oct 22",
     day: "DAY-3",
     events: [
       { time: "08:30 AM", title: "Breakfast" },
@@ -37,43 +38,11 @@ const timelineData = [
   },
 ];
 
-/* ── Google Calendar URL Generator ── */
-const getGoogleCalendarUrl = () => {
-  const title = encodeURIComponent("TransfiNITTe'26");
-  // 10 Oct 2026 18:30 IST (13:00 UTC) to 12 Oct 2026 18:00 IST (12:30 UTC)
-  const dates = "20261010T130000Z/20261012T123000Z";
-  const location = encodeURIComponent("NIT Trichy, Tamil Nadu, India");
-  const details = encodeURIComponent(
-    `TransfiNITTe'26 Hackathon (Oct 10 - Oct 12, 2026)\n` +
-      `Venue: NIT Trichy\n\n` +
-      `DAY 1 — Oct 10:\n` +
-      `• 06:30 PM - Inauguration\n` +
-      `• 07:00 PM - Release of Problem Statements\n` +
-      `• 07:30 PM - Hackathon Begins\n` +
-      `• 08:30 PM - Dinner\n\n` +
-      `DAY 2 — Oct 11:\n` +
-      `• 08:30 AM - Breakfast\n` +
-      `• 01:30 PM - Lunch\n` +
-      `• 04:00 PM - Guidance by Judges\n` +
-      `• 08:30 PM - Dinner\n\n` +
-      `DAY 3 — Oct 12:\n` +
-      `• 08:30 AM - Breakfast\n` +
-      `• 09:00 AM - Guidance by Judges\n` +
-      `• 01:30 PM - Lunch\n` +
-      `• 01:30 PM - Hackathon Ends\n` +
-      `• 05:00 PM - Judging Ends\n` +
-      `• 05:30 PM - Valediction Ceremony\n\n` +
-      `Hosted by Technical Council & SCIENT, NIT Trichy.`
-  );
-
-  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}&location=${location}&ctz=Asia/Kolkata`;
-};
-
 /* ── Google Calendar Button ── */
 const CalendarButton = memo(() => (
   <div className="flex items-center justify-center pt-8 pb-14 border-t border-[#E6E6E3] dark:border-[#222] transition-colors relative z-20">
     <a
-      href={getGoogleCalendarUrl()}
+      href={GOOGLE_CALENDAR_URL}
       target="_blank"
       rel="noopener noreferrer"
       className="group flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-[#1D1D1F] text-white hover:bg-[#333] dark:bg-white dark:text-[#1D1D1F] dark:hover:bg-[#E0E0E0] transition-all duration-300 shadow-sm cursor-pointer"
