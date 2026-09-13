@@ -99,7 +99,7 @@ const TimelineDesktop = memo(() => {
           {/* Animated fill line that grows down on scroll */}
           <motion.div
             style={{ scaleY }}
-            className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[3px] origin-top bg-gradient-to-b from-[#ff7448] via-[#c04892] to-[#6348ff] z-0 pointer-events-none shadow-[0_0_10px_rgba(255,116,72,0.4)]"
+            className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[3px] origin-top bg-gradient-to-b from-[#6B7FA3] via-[#1D1D1F] to-[#6B7FA3] dark:from-[#6B7FA3] dark:via-white dark:to-[#8FA3C7] z-0 pointer-events-none shadow-[0_0_12px_rgba(107,127,163,0.35)] dark:shadow-[0_0_12px_rgba(255,255,255,0.3)] transition-colors"
           />
 
           {/* Top fade mask */}
@@ -140,7 +140,7 @@ const TimelineDesktop = memo(() => {
                       transition={{ duration: 0.4 }}
                       className="w-6 h-6 rounded-full bg-white dark:bg-black border-[5px] border-[#1D1D1F] dark:border-white shadow-md transition-colors"
                     />
-                    <div className="absolute w-10 h-10 rounded-full bg-gradient-to-r from-[#ff7448]/25 via-[#c04892]/25 to-[#6348ff]/25 animate-ping pointer-events-none" />
+                    <div className="absolute w-10 h-10 rounded-full bg-[#6B7FA3]/25 dark:bg-white/20 animate-ping pointer-events-none" />
                   </div>
                 </div>
 
@@ -231,7 +231,7 @@ const TimelineMobile = memo(() => {
           {/* Animated fill line */}
           <motion.div
             style={{ scaleY }}
-            className="absolute left-[30px] top-0 bottom-0 w-[3px] origin-top bg-gradient-to-b from-[#ff7448] via-[#c04892] to-[#6348ff] z-0 pointer-events-none"
+            className="absolute left-[30px] top-0 bottom-0 w-[3px] origin-top bg-gradient-to-b from-[#6B7FA3] via-[#1D1D1F] to-[#6B7FA3] dark:from-[#6B7FA3] dark:via-white dark:to-[#8FA3C7] z-0 pointer-events-none shadow-[0_0_10px_rgba(107,127,163,0.3)] dark:shadow-[0_0_10px_rgba(255,255,255,0.25)] transition-colors"
           />
 
           {/* Day sections */}
