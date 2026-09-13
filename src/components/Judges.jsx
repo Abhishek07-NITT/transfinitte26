@@ -26,7 +26,7 @@ const JudgesMobile = memo(({ judges }) => (
           Past Judges
         </div>
         <div className="flex w-auto h-auto flex-col justify-center text-[#6B6B6B] dark:text-[#A1A1A1] font-spacemono text-[0.65rem] not-italic font-normal leading-[28px] transition-colors align-super -mt-2">
-          (3)
+          (4)
         </div>
       </div>
       <div className="grid grid-cols-2 gap-3 w-full">
@@ -57,13 +57,13 @@ const JudgesDesktop = memo(({ judges, hoveredJudge, setHoveredJudge }) => (
   <div className="hidden md:block mx-auto bg-[#FFFFFF] dark:bg-black max-w-[95%] xl:max-w-[93.194%] transition-colors duration-300">
     <div className="flex h-full py-10 lg:py-16 px-6 lg:px-[46px] justify-between items-start border-r border-l border-r-edge border-l-edge bg-[#FFFFFF] dark:bg-black transition-colors">
       <div className="flex w-full flex-col md:flex-row justify-between items-start gap-8 lg:gap-14 xl:gap-20">
-        <div className="w-full md:w-1/3 lg:w-1/4 flex flex-col justify-start items-start gap-8 lg:gap-14 flex-shrink-0">
+        <div className="w-full md:w-1/3 lg:w-1/4 flex flex-col justify-start items-start gap-8 lg:gap-14 flex-shrink-0 relative z-10">
           <div className="flex h-fit items-start self-stretch">
             <div className="text-[#1D1D1F] dark:text-[#EDEDED] font-spacegrotesk text-3xl lg:text-4xl xl:text-[4rem] font-normal leading-tight whitespace-nowrap transition-colors w-fit">
               Past Judges
             </div>
             <div className="flex w-auto h-auto flex-col justify-center text-[#6B6B6B] dark:text-[#A1A1A1] font-spacemono text-[0.65rem] not-italic font-normal leading-[28px] transition-colors align-super -mt-2">
-              (3)
+              (4)
             </div>
           </div>
           <JudgesList
@@ -72,7 +72,7 @@ const JudgesDesktop = memo(({ judges, hoveredJudge, setHoveredJudge }) => (
             setHoveredJudge={setHoveredJudge}
           />
         </div>
-        <div className="w-full md:w-2/3 lg:w-3/4 grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-5">
+        <div className="w-full md:w-2/3 lg:w-3/4 grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-5 mt-16 lg:mt-20">
           {judges.map((judge) => (
             <div
               key={judge.id}
@@ -94,7 +94,7 @@ const JudgesDesktop = memo(({ judges, hoveredJudge, setHoveredJudge }) => (
                   hoveredJudge === judge.id ? "opacity-85" : "opacity-60"
                 }`}
               />
-              <div className="text-white font-spacemono text-[0.75rem] lg:text-[0.813rem] font-normal uppercase absolute bottom-0 right-[6px] left-[6px] text-right bg-transparent select-none cursor-default truncate">
+              <div className="text-white font-spacemono text-[0.75rem] lg:text-[0.813rem] font-normal uppercase absolute bottom-2 right-[6px] left-[6px] text-right bg-transparent select-none cursor-default truncate">
                 {`${judge.name} | ${judge.company}`}
               </div>
             </div>
