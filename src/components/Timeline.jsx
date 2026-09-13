@@ -37,14 +37,15 @@ const timelineData = [
   },
 ];
 
-/* ── Google Calendar URL ── */
+/* ── Google Calendar URL Generator ── */
 const getGoogleCalendarUrl = () => {
   const title = encodeURIComponent("TransfiNITTe'26");
   // 10 Oct 2026 18:30 IST (13:00 UTC) to 12 Oct 2026 18:00 IST (12:30 UTC)
   const dates = "20261010T130000Z/20261012T123000Z";
   const location = encodeURIComponent("NIT Trichy, Tamil Nadu, India");
   const details = encodeURIComponent(
-    `TransfiNITTe'26 Schedule:\n\n` +
+    `TransfiNITTe'26 Hackathon (Oct 10 - Oct 12, 2026)\n` +
+      `Venue: NIT Trichy\n\n` +
       `DAY 1 — Oct 10:\n` +
       `• 06:30 PM - Inauguration\n` +
       `• 07:00 PM - Release of Problem Statements\n` +
@@ -62,16 +63,15 @@ const getGoogleCalendarUrl = () => {
       `• 01:30 PM - Hackathon Ends\n` +
       `• 05:00 PM - Judging Ends\n` +
       `• 05:30 PM - Valediction Ceremony\n\n` +
-      `Organized by Technical Council & SCIENT, NIT Trichy.`
-      `Organized by Technical Council, NIT Trichy.`
+      `Hosted by Technical Council & SCIENT, NIT Trichy.`
   );
 
   return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}&location=${location}&ctz=Asia/Kolkata`;
 };
 
-/* ── Google Calendar Button Component ── */
+/* ── Google Calendar Button ── */
 const CalendarButton = memo(() => (
-  <div className="flex items-center justify-center pt-8 pb-12 border-t border-[#E6E6E3] dark:border-[#222] transition-colors relative z-20">
+  <div className="flex items-center justify-center pt-8 pb-14 border-t border-[#E6E6E3] dark:border-[#222] transition-colors relative z-20">
     <a
       href={getGoogleCalendarUrl()}
       target="_blank"
@@ -219,7 +219,7 @@ const TimelineDesktop = memo(() => {
           <div className="pointer-events-none absolute left-0 right-0 bottom-0 h-20 z-20 bg-gradient-to-t from-[#FFFFFF] dark:from-black to-transparent transition-colors" />
         </div>
 
-        {/* Calendar Button */}
+        {/* Add to Calendar Button */}
         <CalendarButton />
       </div>
     </div>
@@ -316,7 +316,7 @@ const TimelineMobile = memo(() => {
           </div>
         </div>
 
-        {/* Calendar Button for Mobile */}
+        {/* Add to Calendar Button */}
         <CalendarButton />
       </div>
     </div>
