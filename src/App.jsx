@@ -138,7 +138,7 @@ function App() {
 
   return (
     <>
-      <Suspense fallback={null}>
+      <Suspense fallback={<LoadingScreen />}>
         <Header />
         <Hero />
         <ImageGlider />
