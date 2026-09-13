@@ -89,18 +89,6 @@ function LoadingScreen({ exiting = false }) {
       <div className="bracket bl" aria-hidden="true" />
       <div className="bracket br" aria-hidden="true" />
 
-      <div className="telemetry top">
-        <span>
-          SYS/ID <span className="on">7734-A</span>
-        </span>
-        <span className="glitch">
-          BOOT SEQUENCE <span className="blink">▮</span>
-        </span>
-        <span>
-          LAT <span className="on">0.0000</span> &nbsp; LON <span className="on">0.0000</span>
-        </span>
-      </div>
-
       <div className="core">
         <div className="ring r1" aria-hidden="true" />
         <div className="ring r2" aria-hidden="true" />
@@ -112,35 +100,17 @@ function LoadingScreen({ exiting = false }) {
         </div>
 
         <div className="readout">
-          <div className="pct">
-            <span>{String(progress).padStart(2, "0")}</span>
-            <sup>%</sup>
-          </div>
-          <div className="status-word">{status}</div>
+          <div className="status-word">LOADING PAGE</div>
         </div>
       </div>
 
       <div className="bar-wrap">
-        <div className="bar-label">
-          <span>CORE ALIGNMENT</span>
-          <span>{progress} / 100</span>
-        </div>
         <div className="bar-track">
           <div className="bar-fill" style={{ width: `${progress}%` }} />
         </div>
         <div className="bar-ticks" aria-hidden="true">
           {Array.from({ length: 20 }).map((_, index) => <div key={index} />)}
         </div>
-      </div>
-
-      <div className="log" aria-live="polite">
-        <span>&gt;</span> {log}
-      </div>
-
-      <div className="telemetry bottom">
-        <span>REV 0.09.2</span>
-        <span>NO SIGNAL LOSS DETECTED</span>
-        <span>{clock}</span>
       </div>
     </div>
   );
