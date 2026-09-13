@@ -18,6 +18,7 @@ import {
   AlertDialogHeader,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { GOOGLE_CALENDAR_URL } from "../constants";
 
 const ContactDialog = memo(() => (
   <AlertDialog>
@@ -128,6 +129,10 @@ const FooterMobile = memo(() => (
               href="https://drive.google.com/file/d/1kZ9JWKb0OFPmNv4avGa1OEcq8W6-FxjJ/view"
               text="Archive"
             />
+            <FooterLink
+              href={GOOGLE_CALENDAR_URL}
+              text="Add to Calendar"
+            />
           </div>
         </div>
         <div className="flex justify-center items-start pt-2">
@@ -184,6 +189,10 @@ const FooterDesktop = memo(() => (
           <FooterLink
             href="https://drive.google.com/file/d/1jjjwgRhEHz8pLegoh0GjU5KTq7Ni5zAs/view"
             text="Archive"
+          />
+          <FooterLink
+            href={GOOGLE_CALENDAR_URL}
+            text="Add to Calendar"
           />
         </div>
       </div>
