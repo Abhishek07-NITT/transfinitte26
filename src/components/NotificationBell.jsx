@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
-import { Bell, ChevronDown, CheckCheck, Clock } from "lucide-react";
+import { Bell, ChevronDown, CheckCheck, Clock, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { fetchCalendarNotifications } from "../services/calendarService";
 
 const CURSOR_KEY = "notifications_cursor";
@@ -24,6 +25,8 @@ export default function NotificationBell({ feed: propFeed }) {
   const [feed, setFeed] = useState(propFeed || []);
   const [isOpen, setIsOpen] = useState(false);
   const [visibleLimit, setVisibleLimit] = useState(INITIAL_LIMIT);
+  const [showToast, setShowToast] = useState(false);
+  const lastNotifiedIdRef = useRef(null);
   const containerRef = useRef(null);
 
   // Fetch Google Calendar notifications on mount (if configured)
@@ -79,6 +82,34 @@ export default function NotificationBell({ feed: propFeed }) {
 
   const hasMore = visibleLimit < sortedFeed.length;
 
+  // Dedicated 4-second auto-dismiss timer tied directly to showToast
+  useEffect(() => {
+    if (!showToast) return;
+
+    const timer = setTimeout(() => {
+      setShowToast(false);
+    }, 4000);
+
+    return () => clearTimeout(timer);
+  }, [showToast]);
+
+  // Trigger 4-second popup whenever a new notification arrives
+  useEffect(() => {
+    if (unreadCount > 0 && sortedFeed.length > 0) {
+      const latestItem = sortedFeed[0];
+      if (
+        latestItem &&
+        latestItem.createdAt > cursor &&
+        lastNotifiedIdRef.current !== latestItem.id
+      ) {
+        lastNotifiedIdRef.current = latestItem.id;
+        setShowToast(true);
+      }
+    } else if (unreadCount === 0) {
+      setShowToast(false);
+    }
+  }, [unreadCount, sortedFeed, cursor]);
+
   // Mark all notifications present in feed up to latest as seen
   const markFeedAsSeen = () => {
     if (sortedFeed.length === 0) return;
@@ -91,6 +122,7 @@ export default function NotificationBell({ feed: propFeed }) {
   };
 
   const handleToggle = () => {
+    setShowToast(false);
     const willOpen = !isOpen;
     if (willOpen) {
       markFeedAsSeen();
@@ -128,7 +160,7 @@ export default function NotificationBell({ feed: propFeed }) {
   };
 
   return (
-    <div className="relative inline-flex items-center" ref={containerRef}>
+    <div className="relative inline-flex items-center z-40" ref={containerRef}>
       {/* Bell Button */}
       <button
         type="button"
@@ -145,11 +177,45 @@ export default function NotificationBell({ feed: propFeed }) {
         )}
       </button>
 
-      {/* Notifications Popover Dropdown */}
+      {/* 4-second Animated Pop-up Erupting from the Bell */}
+      <AnimatePresence>
+        {showToast && !isOpen && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.75, y: -6 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.75, y: -6 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            onClick={() => {
+              setShowToast(false);
+              handleToggle();
+            }}
+            className="absolute top-full mt-2.5 right-0 z-50 whitespace-nowrap cursor-pointer select-none"
+          >
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1D1D1F] dark:bg-offwhite text-white dark:text-[#1D1D1F] shadow-xl border border-black/10 dark:border-white/20 text-xs font-spacemono font-semibold transition-transform hover:scale-105">
+              <span className="relative flex h-2 w-2 shrink-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+              </span>
+              <span>New notification arrived</span>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Mobile Backdrop */}
       {isOpen && (
-        <div className="absolute right-0 top-full mt-3 w-80 sm:w-96 rounded-2xl bg-white/95 dark:bg-[#0B0B0C]/95 backdrop-blur-xl border border-[#1D1D1F]/10 dark:border-[#EDEDED26] shadow-2xl z-[100] overflow-hidden transition-all duration-200 animate-in fade-in zoom-in-95">
+        <div
+          className="fixed inset-0 bg-black/60 backdrop-blur-xs z-40 md:hidden"
+          onClick={() => setIsOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* Notifications Popover Dropdown (Responsive: full width on mobile, anchored on desktop) */}
+      {isOpen && (
+        <div className="fixed inset-x-3 top-[65px] md:inset-x-auto md:right-0 md:top-full md:mt-3 md:absolute w-auto md:w-96 max-w-[calc(100vw-1.5rem)] rounded-2xl bg-white/95 dark:bg-[#0B0B0C]/95 backdrop-blur-xl border border-[#1D1D1F]/10 dark:border-[#EDEDED26] shadow-2xl z-50 overflow-hidden transition-all duration-200 animate-in fade-in zoom-in-95 flex flex-col max-h-[calc(100vh-85px)] md:max-h-[500px]">
           {/* Header */}
-          <div className="px-4 py-3 border-b border-[#1D1D1F]/10 dark:border-[#EDEDED26] flex items-center justify-between bg-black/[0.02] dark:bg-white/[0.02]">
+          <div className="px-4 py-3 border-b border-[#1D1D1F]/10 dark:border-[#EDEDED26] flex items-center justify-between bg-black/[0.02] dark:bg-white/[0.02] shrink-0">
             <div className="flex items-center gap-2">
               <h3 className="font-spacegrotesk font-semibold text-sm text-[#1D1D1F] dark:text-white uppercase tracking-wider">
                 Notifications
@@ -158,14 +224,24 @@ export default function NotificationBell({ feed: propFeed }) {
                 {sortedFeed.length}
               </span>
             </div>
-            <div className="flex items-center gap-1 text-[11px] font-spacemono text-green-600 dark:text-green-400">
-              <CheckCheck className="w-3.5 h-3.5" />
-              <span>All read</span>
+            <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1 text-[11px] font-spacemono text-green-600 dark:text-green-400">
+                <CheckCheck className="w-3.5 h-3.5" />
+                <span>All read</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsOpen(false)}
+                className="p-1 rounded-full text-zinc-400 hover:text-zinc-700 dark:hover:text-white md:hidden transition-colors"
+                aria-label="Close notifications"
+              >
+                <X className="w-4 h-4" />
+              </button>
             </div>
           </div>
 
           {/* Feed List */}
-          <div className="max-h-[380px] overflow-y-auto divide-y divide-[#1D1D1F]/5 dark:divide-[#EDEDED15] scrollbar-thin">
+          <div className="overflow-y-auto divide-y divide-[#1D1D1F]/5 dark:divide-[#EDEDED15] scrollbar-thin flex-1">
             {visibleNotifications.length === 0 ? (
               <div className="p-8 text-center text-xs font-spacemono text-zinc-500">
                 No notifications to display.
@@ -197,7 +273,7 @@ export default function NotificationBell({ feed: propFeed }) {
 
           {/* Footer: See More Button */}
           {hasMore && (
-            <div className="p-2.5 border-t border-[#1D1D1F]/10 dark:border-[#EDEDED26] bg-black/[0.02] dark:bg-white/[0.02] text-center">
+            <div className="p-2.5 border-t border-[#1D1D1F]/10 dark:border-[#EDEDED26] bg-black/[0.02] dark:bg-white/[0.02] text-center shrink-0">
               <button
                 type="button"
                 onClick={handleSeeMore}
